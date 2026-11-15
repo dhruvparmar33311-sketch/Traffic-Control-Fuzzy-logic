@@ -1,0 +1,30 @@
+Fuzzy Logic-Based Traffic Congestion Controller System
+======================================================
+
+Overview
+--------
+This project implements a Mamdani-style Fuzzy Inference System (FIS) for adaptive
+single-intersection traffic signal control. It computes an optimal green-light
+duration G in [10, 90] seconds from active-approach Traffic Density D in [0, 100] veh/km
+and competing-approach Waiting Time W in [0, 120] seconds using trapezoidal and
+triangular membership functions, a 9-rule linguistic IF-THEN base, min-max inference,
+and discrete centroid defuzzification (N = 800 intervals).
+
+Project Structure
+-----------------
+- app.py             : Core fuzzy inference engine and interactive Streamlit web dashboard.
+- requirements.txt   : Required Python packages.
+- README.txt         : Setup and execution instructions.
+- outputs/           : Directory created when running the 5-scenario verification suite
+                       (contains membership_functions.png, test_outputs.png, test_results.csv).
+
+Setup and Execution
+-------------------
+1. Install dependencies:
+   python -m pip install -r requirements.txt
+
+2. Launch the interactive dashboard:
+   python -m streamlit run app.py
+
+3. Open http://localhost:8501 in your browser, set the Traffic Density and Waiting Time
+   sliders in the sidebar, and click "Calculate Green Time".
